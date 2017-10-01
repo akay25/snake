@@ -1,0 +1,34 @@
+
+body {margin:0; padding:0;overflow:hidden;} /* remove top and left whitespace */
+
+canvas {display:block;}    /* remove scrollbars */
+
+canvas:focus {outline:0;} /* remove blue outline around canvas */
+
+#danger{
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 300px;
+    padding: 0px;
+    margin: 0px auto 10px;
+    visibility: hidden;
+}
+#init{
+    color: white;
+    display:block;
+    font-size: 54px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    width:100vh;
+    margin: 0px auto;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.outer-div {
+    height:100vh;
+    width: 100%;
+    background-color: black;
+}

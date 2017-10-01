@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>Snake</title>
+
+        <link rel='stylesheet'  href='http://192.168.0.100/libraries/css/bootstrap.min.css'>
+        <link rel="stylesheet" type="text/css" href="main.css">
+
+        <script src="http://192.168.0.100/libraries/js/p5/p5.min.js"></script>
+        <script src="sketch.js"></script>
+    </head>
+    <body id="body" class="outer-div">
+        <div id="init">
+            <div class="alert alert-danger" id="danger">
+            </div>
+            <div class="input-group" id='username-holder'>
+                <input type="text" class="form-control" id="userId" placeholder="Enter your name ">
+                <input type="hidden" id="username" value="">
+			    <span class="input-group-btn">
+			    	<button class="btn btn-primary" id="submit" onClick="submitUserId()">Create ID</button>
+			    </span>
+		    </div>
+        </div>
+    </body>
+
+    <script>
+        function submitUserId(){
+            var userId = document.getElementById("userId").value;
+            
+            //socket io submit value
+            if(true){ // user registration successful
+                user = userId;
+                gameStart = true;
+                var elem = document.getElementById('init');
+                elem.parentNode.removeChild(elem);
+                document.getElementById("body").classList.remove("outer-div");    
+            }else{
+                var error = "Try another username."; //get error response from Node.js
+                var err_tag = document.getElementById('danger');
+                err_tag.innerHTML = error;
+                err_tag.style.visibility = 'visible';
+            }
+        }
+    </script>
+</html>
