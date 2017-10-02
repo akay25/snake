@@ -42,15 +42,15 @@ function draw(){
         /*******game code starts here*******/
         background(34);
         translate(width/2, height/2);
-        //A zoom function like agar.io
+        /*//A zoom function like agar.io
         var newzoom = scl/snake,r;
-        zoom = lerp(zoom, newzoom, 0.6);
-        scale(scl/snake.r);
+        zoom = lerp(zoom, newzoom, 0.9);
+        scale(scl/snake.r);*/
         
         //Since things aren't going smooth, i m going with lerp :p
-        var newTrans = createVector(-snake.x, -snake.y);
-        trans.x = lerp(trans.x, newTrans.x, 0.2);
-        trans.y = lerp(trans.y, newTrans.y, 0.2);
+        var newTrans = createVector(-floor(snake.x), -floor(snake.y));
+        trans.x = lerp(trans.x, newTrans.x, 0.4);
+        trans.y = lerp(trans.y, newTrans.y, 0.4)
 
         //I'm the center of the whole world
         translate( trans.x, trans.y);
@@ -62,12 +62,12 @@ function draw(){
         //The food particles
         for(var i=0;i<foods.length;i++)
             foods[i].show();
-        
+
         snake.show();
         snake.update();
-
+        
         //send snake data to server
-
+        
 
         //get updated snake data on client
 
@@ -152,9 +152,10 @@ function Food(x, y){
     this.x = x;
     this.y = y;
     this.c = color(0, 255, 0);
+    this.r = scl/3;
     this.show = function(){
         fill(this.c);
         noStroke();
-        ellipse(this.x, this.y, 4, 4);
+        ellipse(this.x, this.y, this.r, this.r);
     }
 }
