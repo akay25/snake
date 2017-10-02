@@ -18,8 +18,8 @@ function setup() {
     frameRate(15);
 
     //get snake details from server
-    gameStart = true;
-    user = 'Game B)';
+    //gameStart = true;
+    //user = 'Game B)';
 
     //Initialize the snake
     snake = new Snake(45, 67);
@@ -35,16 +35,16 @@ function setup() {
  
 function draw(){
 
-    background(34);
+    background(0);
 
     //user registered successfully
     if(gameStart && user !== null){
         /*******game code starts here*******/
-        
+        background(34);
         translate(width/2, height/2);
         //A zoom function like agar.io
         var newzoom = scl/snake,r;
-        zoom = lerp(zoom, newzoom, 0.9);
+        zoom = lerp(zoom, newzoom, 0.6);
         scale(scl/snake.r);
         
         //Since things aren't going smooth, i m going with lerp :p
@@ -148,10 +148,10 @@ function Snake(x, y) {
     }
 }
 
-function Food(x, y, c){
+function Food(x, y){
     this.x = x;
     this.y = y;
-    this.c = c;
+    this.c = color(0, 255, 0);
     this.show = function(){
         fill(this.c);
         noStroke();
