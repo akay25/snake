@@ -12,6 +12,7 @@ var foods = [];
 var zoom = 1;
 var trans;
 
+
 function setup() {
     //Canvas settings
     createCanvas(windowWidth, windowHeight);
@@ -42,19 +43,19 @@ function draw(){
         /*******game code starts here*******/
         background(34);
         translate(width/2, height/2);
-        /*//A zoom function like agar.io
+        //A zoom function like agar.io
         var newzoom = scl/snake,r;
         zoom = lerp(zoom, newzoom, 0.9);
-        scale(scl/snake.r);*/
+        scale(scl/snake.r);
         
         //Since things aren't going smooth, i m going with lerp :p
         var newTrans = createVector(-floor(snake.x), -floor(snake.y));
-        trans.x = lerp(trans.x, newTrans.x, 0.4);
-        trans.y = lerp(trans.y, newTrans.y, 0.4)
+        trans.x = lerp(trans.x, newTrans.x, 0.3);
+        trans.y = lerp(trans.y, newTrans.y, 0.3);
 
         //I'm the center of the whole world
-        translate( trans.x, trans.y);
-        
+        translate(trans.x, trans.y);
+
         fill(23);   //Too tired to see the world in black and white
         noStroke(); //Going without eye liner
         rect(-mapWidth - scl/2, -mapHeight - scl/2, mapWidth*2 + scl/2, mapHeight*2 + scl/2); //creating the non-monochromatic stage
@@ -67,7 +68,7 @@ function draw(){
         snake.update();
         
         //send snake data to server
-        
+
 
         //get updated snake data on client
 
